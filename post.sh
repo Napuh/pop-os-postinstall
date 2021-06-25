@@ -41,21 +41,27 @@ sudo apt install -y\
 	timeshift \
 	deja-dup \
 	flameshot \
-	flutter \
 	obs-studio \
-	sublime-text \
 	gnome-tweaks \
 	virtualbox \
 	virtualbox-ext-pack \
-	software–properties–common \
+	software-properties-common \
 	code \
 	wireshark \
 	nmap \
 	gparted
 
+#Install sublime text
+echo_blue "Installing sublime text"
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get install -y apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt update
+sudo apt install -y sublime-text
+
 #Install snap packages
 echo_blue "Install snap packages"
-sudo snap install \
+sudo snap install -y\
 	discord \
 	flutter \
 	spotify
@@ -83,17 +89,20 @@ sudo apt upgrade -y
 #Install extras
 echo_blue "Installing extras"
 #auto-editor
-sudo apt install libavformat-dev libavfilter-dev libavdevice-dev ffmpeg
+sudo apt install -y libavformat-dev libavfilter-dev libavdevice-dev ffmpeg
 pip3 install --upgrade pip
 pip3 install auto-editor
 #mkvmerge
-sudo apt install mkvmerge
+sudo wget -O /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
+deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main
+deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main 
+sudo apt install -y mkvtoolnix
 #cositas para la bateria
-sudo apt install tlp tlp-rdw
+sudo apt install -y tlp tlp-rdw
 #install tldr
 pip install tldr
 #install fuck
-sudo apt install python3-dev python3-pip python3-setuptools
+sudo apt install -y python3-dev python3-pip python3-setuptools
 sudo pip3 install thefuck
 
 #Install vscode extensions
@@ -115,6 +124,7 @@ code --install-extension aaron-bond.better-comments
 
 #Customize gnome desktop
 echo_blue "Custimizing gnome desktop"
+sudo apt install -y gnome-tweaks
 # Time and Gnome Top Bar settings
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
