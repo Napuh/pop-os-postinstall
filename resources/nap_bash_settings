@@ -1,0 +1,7 @@
+eval "$(thefuck --alias)"
+alias please='sudo'
+alias salte='exit'
+alias make='clear && make'
+alias m='make'
+alias rm='rm -I'
+alias mv='mv -I'
