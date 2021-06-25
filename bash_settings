@@ -1,0 +1,3 @@
+eval "$(thefuck --alias)"
+alias please='sudo'
+alias salte='exit'
