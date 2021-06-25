@@ -11,6 +11,8 @@ function print_blue {
 
 #Starting script
 print_green "Starting Pop!_OS post-install script."
+#Set idle time to 60 minutes so script does not stop 
+gsettings set org.gnome.desktop.session idle-delay 3600
 
 ########################
 ####Install packages####
@@ -209,7 +211,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'Pop'
 
 #Set wallpapers
 print_blue "Setting wallpaper"
-cp nap-wallpaper.jpg ~/.themes
+cp ./resources/nap-wallpaper.jpg ~/.themes
 gsettings set org.gnome.desktop.background picture-uri ~/.themes/nap-wallpaper.jpg
 gsettings set org.gnome.desktop.screensaver picture-uri ~/.themes/nap-wallpaper.jpg
 
@@ -229,9 +231,17 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 print_blue "Set natural-scroll true"
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 
+#Set idle time to 15 minutes
+print_blue "Setting idle time to 15 minutes"
+gsettings set org.gnome.desktop.session idle-delay 900
+
 #Set lockscreen time to 15 minutes
-print_blue "Setting lock screen time to 15 minutes"
+print_blue "Setting lock screen time to 5 minutes"
 gsettings set org.gnome.desktop.screensaver lock-delay 300
+
+#Set the correct theme for the terminal
+print_blue "Setting the correct theme for the terminal"
+dconf load /org/gnome/terminal/legacy/profiles:/:84b4775b-f78b-4e72-955b-fa81e77344be/ < ./resources/nap_terminal_theme
 
 #Install dash to dock manually
 print_blue "Install manually dash to dock"
