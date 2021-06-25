@@ -64,7 +64,7 @@ sudo apt install -y -qq snapd
 
 #Install snap packages
 echo_blue "Install snap packages"
-snap install -y\
+snap install \
 	discord \
 	flutter \
 	spotify
@@ -82,7 +82,7 @@ echo \
 "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt -qq install -y docker-ce docker-ce-cli containerd.io
 
 #Update everything new
 echo_green "Updating everything"
