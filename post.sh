@@ -17,12 +17,12 @@ echo_green "Starting Pop!_OS post-install script."
 
 #Update and upgrade packages
 echo_blue "Updating packages"
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt -qq update -y
+sudo apt -qq upgrade -y
 
 #Install basic dependencies and tools
 echo_blue "Installing basic dependencies and tools"
-sudo apt install -y\
+sudo apt install -y -qq \
 	gcc \
 	make \
 	build-essential \
@@ -36,7 +36,7 @@ sudo apt install -y\
 
 #Install apt packages
 echo_blue "Install apt packages"
-sudo apt install -y\
+sudo apt install -y -qq \
 	aqemu \
 	timeshift \
 	deja-dup \
@@ -58,16 +58,20 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install -y sublime-text
 
+#Install snap
+echo_blue "Install snap"
+sudo apt install -y -qq snapd
+
 #Install snap packages
 echo_blue "Install snap packages"
-sudo snap install -y\
+snap install -y\
 	discord \
 	flutter \
 	spotify
 
 #Install docker
 echo_blue "Installing docker"
-sudo apt install \
+sudo apt install -y -qq \
 	apt-transport-https \
 	ca-certificates \
 	curl \
@@ -82,8 +86,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 #Update everything new
 echo_green "Updating everything"
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt -qq update -y
+sudo apt -qq upgrade -y
 
 #Install extras
 echo_blue "Installing extras"
@@ -100,9 +104,10 @@ sudo apt install -y mkvtoolnix
 sudo apt install -y tlp tlp-rdw
 #install tldr
 pip install tldr
-#install fuck
+#install thefuck
 sudo apt install -y python3-dev python3-pip python3-setuptools
-sudo pip3 install thefuck
+pip3 install thefuck
+echo "eval "$(thefuck --alias)"" >> ~/.bashrc
 
 #Install vscode extensions
 code --install-extension aaron-bond.better-comments
