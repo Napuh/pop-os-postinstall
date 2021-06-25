@@ -44,7 +44,6 @@ sudo apt install -y\
 	obs-studio \
 	gnome-tweaks \
 	virtualbox \
-	virtualbox-ext-pack \
 	software-properties-common \
 	code \
 	wireshark \
