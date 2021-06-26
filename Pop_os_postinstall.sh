@@ -136,7 +136,7 @@ pip install tldr
 #install thefuck
 print_blue "Install thefuck"
 sudo apt install -y python3-dev python3-pip python3-setuptools
-pip3 install thefuck
+sudo pip3 install thefuck
 
 #install pytorch
 print_blue "Installing pytorch"
