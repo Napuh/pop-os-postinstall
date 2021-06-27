@@ -28,16 +28,16 @@ print_green "\nInstalling basic packages\n"
 
 #Update and upgrade packages
 print_blue "\nUpdating packages\n"
-sudo apt-get -qq update -y >> log.txt
-sudo apt-get -qq upgrade -y >> log.txt
+sudo apt-get -qq update -y >> /dev/null
+sudo apt-get -qq upgrade -y >> /dev/null
 
 #Install basic dependencies and tools
 print_blue "\nInstalling basic dependencies and tools\n"
-sudo add-apt-repository multiverse >> log.txt
+sudo add-apt-repository multiverse >> /dev/null
 print_blue "\nInstalling ubuntu restricted extras. You may need to accept the EULA of the microsoft fonts\n"
-sudo apt-get install -y ubuntu-restricted-extras
+sudo apt-get -qq install -y ubuntu-restricted-extras
 print_blue "\nInstalling other basic tools\n"
-sudo apt-get install -qq -y \
+sudo apt-get -qq install -y \
 	curl \
 	neofetch \
 	screenfetch \
@@ -54,11 +54,11 @@ sudo apt-get install -qq -y \
 	python3 \
 	python3-pip \
 	cmake \
-	git >> log.txt
+	git
 
 #Install apt packages
 print_blue "\nInstall apt packages\n"
-sudo apt install -qq -y \
+sudo apt-get install -qq -y \
 	aqemu \
 	timeshift \
 	deja-dup \
@@ -75,45 +75,45 @@ sudo apt install -qq -y \
 	tree \
 	ssh \
 	aptitude \
-	vim >> log.txt
+	vim
 
 #Install sublime text
 print_blue "\nInstalling sublime text\n"
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt -qq install -y apt-transport-https >> log.txt
+sudo apt -qq install -y apt-transport-https 
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update >> log.txt
-sudo apt -qq install -y sublime-text >> log.txt
+sudo apt update >> /dev/null
+sudo apt -qq install -y sublime-text 
 
 #Install snap
 print_blue "\nInstall snap\n"
-sudo apt -qq install -y snapd >> log.txt
+sudo apt-get -qq install -y snapd 
 
 #Install snap packages
 print_blue "\nInstall snap packages\n"
-snap install spotify >> log.txt
+snap install spotify
 
 #Install docker
 print_blue "\nInstalling docker\n"
-sudo apt install -y -qq \
+sudo apt-get install -y -qq \
 	apt-transport-https \
 	ca-certificates \
 	curl \
 	gnupg \
-	lsb-release >> log.txt
+	lsb-release
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
 "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update >> log.txt
-sudo apt -qq install -y docker-ce docker-ce-cli containerd.io >> log.txt
+sudo apt-get update >> /dev/null
+sudo apt-get -qq install -y docker-ce docker-ce-cli containerd.io 
 
 #############################
 ####Update everything new####
 #############################
 print_green "\nUpdating everything\n"
-sudo apt -qq update -y >> log.txt
-sudo apt -qq upgrade -y >> log.txt
+sudo apt-get -qq update -y >> /dev/null
+sudo apt-get -qq upgrade -y >> /dev/null
 
 ######################
 ####Install extras####
@@ -122,7 +122,7 @@ print_green "\nInstalling extras\n"
 
 #auto-editor
 print_blue "\nInstall auto-editor\n"
-sudo apt install -y libavformat-dev libavfilter-dev libavdevice-dev ffmpeg
+sudo apt-get install -y libavformat-dev libavfilter-dev libavdevice-dev ffmpeg
 pip3 install --upgrade pip
 pip3 install auto-editor
 
@@ -131,11 +131,11 @@ print_blue "\nInstall mkvmerge\n"
 sudo wget -O /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
 deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main
 deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main 
-sudo apt install -y mkvtoolnix >> log.txt
+sudo apt-get install -y mkvtoolnix 
 
 #cositas para la bateria
 print_blue "\nInstall tlp\n"
-sudo apt install -y tlp tlp-rdw >> log.txt
+sudo apt-get install -y tlp tlp-rdw 
 
 #install tldr
 print_blue "\nInstall tldr\n"
@@ -143,7 +143,7 @@ pip install tldr
 
 #install thefuck
 print_blue "\nInstall thefuck\n"
-sudo apt install -y python3-dev python3-pip python3-setuptools >> log.txt
+sudo apt-get install -y python3-dev python3-pip python3-setuptools 
 sudo pip3 install thefuck
 
 #install pytorch
@@ -163,40 +163,40 @@ source ~/.bashrc
 #################################
 print_green "\nInstall vscode extensions\n"
 print_blue "\n Installing better-comments\n"
-code --install-extension aaron-bond.better-comments >> log.txt
+code --install-extension aaron-bond.better-comments >> /dev/null
 print_blue "\n Installing bracket-pair-colorizer-2\n"
-code --install-extension coenraads.bracket-pair-colorizer-2 >> log.txt
+code --install-extension coenraads.bracket-pair-colorizer-2 >> /dev/null
 print_blue "\n Installing cpptools\n"
-code --install-extension ms-vscode.cpptools >> log.txt
+code --install-extension ms-vscode.cpptools >> /dev/null
 print_blue "\n Installing code-gnu-global\n"
-code --install-extension austin.code-gnu-global >> log.txt
+code --install-extension austin.code-gnu-global >> /dev/null
 print_blue "\n Installing dart-code\n"
-code --install-extension dart-code.dart-code >> log.txt
+code --install-extension dart-code.dart-code >> /dev/null
 print_blue "\n Installing fluent-icons\n"
-code --install-extension miguelsolorio.fluent-icons >> log.txt
+code --install-extension miguelsolorio.fluent-icons >> /dev/null
 print_blue "\n Installing flutter\n"
-code --install-extension dart-code.flutter >> log.txt
+code --install-extension dart-code.flutter >> /dev/null
 print_blue "\n Installing vscode-yaml\n"
-code --install-extension redhat.vscode-yaml >> log.txt
+code --install-extension redhat.vscode-yaml >> /dev/null
 print_blue "\n Installing vscode-pull-request-github\n"
-code --install-extension github.vscode-pull-request-github >> log.txt
+code --install-extension github.vscode-pull-request-github >> /dev/null
 print_blue "\n Installing cmake-tools\n"
-code --install-extension ms-vscode.cmake-tools >> log.txt
+code --install-extension ms-vscode.cmake-tools >> /dev/null
 print_blue "\n Installing cmake\n"
-code --install-extension twxs.cmake >> log.txt
+code --install-extension twxs.cmake >> /dev/null
 print_blue "\n Installing cpptools-themes\n"
-code --install-extension ms-vscode.cpptools-themes >> log.txt
+code --install-extension ms-vscode.cpptools-themes >> /dev/null
 print_blue "\n Installing cpptools-extension-pack\n"
-code --install-extension ms-vscode.cpptools-extension-pack >> log.txt
+code --install-extension ms-vscode.cpptools-extension-pack >> /dev/null
 print_blue "\n Installing better-cpp-syntax\n"
-code --install-extension jeff-hykin.better-cpp-syntax >> log.txt
+code --install-extension jeff-hykin.better-cpp-syntax >> /dev/null
 
 ###############################
 ####Customize gnome desktop####
 ###############################
 
 print_green "\nCustimizing gnome desktop\n"
-sudo apt -qq install -y gnome-tweaks >> log.txt
+sudo apt-get -qq install -y gnome-tweaks 
 
 #Restore some gnome settings
 print_blue "\nRestoring some gnome settings\n"
@@ -259,10 +259,10 @@ firefox https://extensions.gnome.org/extension/307/dash-to-dock/
 ####Final update for the system####
 ###################################
 print_green "\n Final update for the system \n"
-sudo apt -qq update -y >> log.txt
-sudo apt -qq upgrade -y >> log.txt
-sudo apt autoremove -y --purge >> log.txt
-sudo apt autoclean -y >> log.txt
+sudo apt-get -qq update -y >> /dev/null
+sudo apt-get -qq upgrade -y >> /dev/null
+sudo apt-get autoremove -y --purge >> /dev/null
+sudo apt-get autoclean -y >> /dev/null
 
 ##############
 ####Finish####
