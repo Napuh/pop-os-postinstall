@@ -25,11 +25,11 @@ wget "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.2.1.0/android
 ZIP_LOCATION = 'ls ~/Downloads | grep android-studio'
 
 #Extract android studio to home
-unzip ~/Downloads/ZIP_LOCATION -d $JAVA_HOME
+unzip ~/Downloads/$ZIP_LOCATION -d $JAVA_HOME
 
 #Run Android studio for installation
 STUDIO_DIR = 'ls $HOME | grep "android-studio"'
-cd $JAVA_HOME./$STUDIO_DIR/bin/studio.sh
+cd $HOME/$STUDIO_DIR/bin/studio.sh
 
 #setting up environment variables
 echo -e "\n# Android Studio environment variables" >> ~/.bashrc
@@ -40,3 +40,6 @@ source ~/.bashrc
 
 #Check things
 flutter doctor
+
+#Upgrade if neccesary
+flutter upgrade
