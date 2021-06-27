@@ -22,14 +22,15 @@ rm google-chrome-stable_current_amd64.deb
 #Download android studio
 cd ~/Downloads
 wget "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.2.1.0/android-studio-ide-202.7351085-linux.tar.gz"
-ZIP_LOCATION = 'ls ~/Downloads | grep android-studio'
+ZIP_LOCATION=` ls $DOWNLOADS | grep "android-studio" `
 
 #Extract android studio to home
-unzip ~/Downloads/$ZIP_LOCATION -d $JAVA_HOME
+tar xvzf $ZIP_LOCATION -C ~
 
 #Run Android studio for installation
-STUDIO_DIR = 'ls $HOME | grep "android-studio"'
-cd $HOME/$STUDIO_DIR/bin/studio.sh
+STUDIO_DIR=` ls $HOME | grep "android-studio" `
+cd ~
+./$STUDIO_DIR/bin/studio.sh 
 
 #setting up environment variables
 echo -e "\n# Android Studio environment variables" >> ~/.bashrc
