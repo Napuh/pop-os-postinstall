@@ -34,8 +34,10 @@ sudo apt-get -qq upgrade -y >> log.txt
 #Install basic dependencies and tools
 print_blue "\nInstalling basic dependencies and tools\n"
 sudo add-apt-repository multiverse >> log.txt
-sudo apt install -qq -y \
-	ubuntu-restricted-extras \
+print_blue "\nInstalling ubuntu restricted extras. You may need to accept the EULA of the microsoft fonts\n"
+sudo apt-get install -y ubuntu-restricted-extras
+print_blue "\nInstalling other basic tools\n"
+sudo apt-get install -qq -y \
 	curl \
 	neofetch \
 	screenfetch \
