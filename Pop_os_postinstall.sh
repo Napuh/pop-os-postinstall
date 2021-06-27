@@ -85,6 +85,10 @@ print_blue "Install snap packages"
 snap install spotify
 snap install flutter --classic
 
+#Install android SDK
+print_blue "Installing android SDK"
+sudo apt update
+
 #Install docker
 print_blue "Installing docker"
 sudo apt install -y -qq \
