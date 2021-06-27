@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#Functions to look cool
+function print_green {
+	echo -e "\e[1;30;42m$1\e[0m"
+}
+
+function print_blue {
+	echo -e "\e[1;30;44m$1\e[0m"
+}
+
 #Updating
 sudo apt update -y
 sudo apt upgrade -y
@@ -38,6 +47,9 @@ echo "export ANDROID_SDK_ROOT=$HOME/Android/Sdk" >> ~/.bashrc
 echo "export ANDROID_HOME=$ANDROID_SDK_ROOT" >> ~/.bashrc
 
 source ~/.bashrc
+
+#Accept android licenses and stuff
+flutter doctor --android-licenses
 
 #Check things
 flutter doctor

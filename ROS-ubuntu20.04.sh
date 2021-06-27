@@ -1,4 +1,14 @@
 #!/bin/bash
+
+#Functions to look cool
+function print_green {
+	echo -e "\e[1;30;42m$1\e[0m"
+}
+
+function print_blue {
+	echo -e "\e[1;30;44m$1\e[0m"
+}
+
 #Setup sources
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 #Setup keys

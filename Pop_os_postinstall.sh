@@ -2,11 +2,11 @@
 
 #Functions to look cool
 function print_green {
-	echo -e "\e[1;30;42m$1\e[0m\n"
+	echo -e "\e[1;30;42m$1\e[0m"
 }
 
 function print_blue {
-	echo -e "\e[1;30;44m$1\e[0m\n"
+	echo -e "\e[1;30;44m$1\e[0m"
 }
 
 #Starting script
@@ -21,12 +21,12 @@ print_green "Installing basic packages"
 
 #Update and upgrade packages
 print_blue "Updating packages"
-sudo apt -qq update -y
-sudo apt -qq upgrade -y
+sudo apt -qq update -y >> log.txt
+sudo apt -qq upgrade -y >> log.txt
 
 #Install basic dependencies and tools
 print_blue "Installing basic dependencies and tools"
-sudo add-apt-repository multiverse
+sudo add-apt-repository multiverse >> log.txt
 sudo apt install -qq -y \
 	ubuntu-restricted-extras \
 	curl \
@@ -39,13 +39,13 @@ sudo apt install -qq -y \
 	gcc \
 	make \
 	build-essential \
-	openjdk-11-jre \
-	openjdk-11-jdk \
+	openjdk-8-jre \
+	openjdk-8-jdk \
 	python \
 	python3 \
 	python3-pip \
 	cmake \
-	git
+	git 
 
 #Install apt packages
 print_blue "Install apt packages"
@@ -66,7 +66,7 @@ sudo apt install -qq -y \
 	tree \
 	ssh \
 	aptitude \
-	vim
+	vim 
 
 #Install sublime text
 print_blue "Installing sublime text"
@@ -74,7 +74,7 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 sudo apt -qq install -y apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt update
-sudo apt -qq install -y sublime-text
+sudo apt -qq install -y sublime-text 
 
 #Install snap
 print_blue "Install snap"
