@@ -54,7 +54,8 @@ sudo apt-get -qq install -y \
 	python3 \
 	python3-pip \
 	cmake \
-	git
+	git \
+	npm
 
 #Install apt packages
 print_blue "\nInstall apt packages\n"
@@ -107,6 +108,7 @@ echo \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update >> /dev/null
 sudo apt-get -qq install -y docker-ce docker-ce-cli containerd.io 
+sudo apt-get install docker-compose
 
 #############################
 ####Update everything new####
@@ -190,6 +192,8 @@ print_blue "\n Installing cpptools-extension-pack\n"
 code --install-extension ms-vscode.cpptools-extension-pack >> /dev/null
 print_blue "\n Installing better-cpp-syntax\n"
 code --install-extension jeff-hykin.better-cpp-syntax >> /dev/null
+print_blue "\n Installing docker\n"
+code --install-extension ms-azuretools.vscode-docker >> /dev/null
 
 ###############################
 ####Customize gnome desktop####
