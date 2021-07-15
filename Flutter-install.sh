@@ -58,6 +58,7 @@ STUDIO_DIR=` ls $HOME | grep "android-studio" `
 cd ~
 ./$STUDIO_DIR/bin/studio.sh 
 
+
 #setting up environment variables
 print_blue "\nSetting up environment variables\n"
 echo -e "\n# Android Studio environment variables" >> ~/.bashrc
@@ -65,6 +66,10 @@ echo "export ANDROID_SDK_ROOT=$HOME/Android/Sdk" >> ~/.bashrc
 echo "export ANDROID_HOME=$ANDROID_SDK_ROOT" >> ~/.bashrc
 
 source ~/.bashrc
+
+#Install adb for using devices
+print_blue "\n Installing adb \n"
+sudo apt -qq install -y adb
 
 #Accept android licenses and stuff
 print_blue "\n Accept all android licenses \n"
