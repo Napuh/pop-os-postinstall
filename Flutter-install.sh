@@ -45,6 +45,7 @@ rm google-chrome-stable_current_amd64.deb
 #Download android studio
 print_blue "\nDownloading android studio\n"
 cd ~/Downloads
+rm android-studio*
 wget "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.2.1.0/android-studio-ide-202.7351085-linux.tar.gz"
 ZIP_LOCATION=` ls $DOWNLOADS | grep "android-studio" `
 
