@@ -160,6 +160,10 @@ pip install tensorflow tensorflow_probability tensorboard
 cat ./resources/nap_bash_settings >> ~/.bashrc
 source ~/.bashrc
 
+#Apply fixes to ubuntu USB transfer
+echo vm.dirty_bytes=50331648 | sudo tee -a /etc/sysctl.conf
+echo vm.dirty_background_bytes=16777216 | sudo tee -a /etc/sysctl.conf
+
 #################################
 ####Install vscode extensions####
 #################################
