@@ -12,3 +12,6 @@ Take into account that the script is not 100% automatic, you'll need to input yo
 ## ROS and full flutter install
 There's other two scripts in order to install ROS (Only for Ubuntu 20.04 and 20.04 based distros) and Flutter with the Android SDK and everything necessary.
 It is recommended that these scripts are executed after the Pop-OS postinstall script.
+
+## Synth shell install
+I've also included a quick synth shell install script with my personal configuration, but when the script finishes it is recommended changing the terminal font to one compatible with powerline fonts. I use Hack Regular with size 10.
