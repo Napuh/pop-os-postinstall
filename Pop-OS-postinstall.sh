@@ -100,6 +100,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 sudo apt-get -qq install -y docker-ce docker-ce-cli containerd.io 
 sudo apt-get install docker-compose
+rm get-docker.sh
 
 #############################
 ####Update everything new####
