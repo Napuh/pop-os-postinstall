@@ -96,17 +96,8 @@ snap install spotify
 
 #Install docker
 print_blue "\nInstalling docker\n"
-sudo apt-get install -y -qq \
-	apt-transport-https \
-	ca-certificates \
-	curl \
-	gnupg \
-	lsb-release
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update >> /dev/null
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 sudo apt-get -qq install -y docker-ce docker-ce-cli containerd.io 
 sudo apt-get install docker-compose
 
@@ -128,13 +119,6 @@ sudo apt-get install -y libavformat-dev libavfilter-dev libavdevice-dev ffmpeg
 pip3 install --upgrade pip
 pip3 install auto-editor
 
-#mkvmerge
-print_blue "\nInstall mkvmerge\n"
-sudo wget -O /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
-deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main
-deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ focal main 
-sudo apt-get install -y mkvtoolnix 
-
 #cositas para la bateria
 print_blue "\nInstall tlp\n"
 sudo apt-get install -y tlp tlp-rdw 
@@ -148,14 +132,6 @@ print_blue "\nInstall thefuck\n"
 sudo apt-get install -y python3-dev python3-pip python3-setuptools 
 sudo pip3 install thefuck
 
-#install pytorch
-print_blue "\nInstalling pytorch\n"
-pip3 install torch
-
-#install tensorflow
-print_blue "\nInstall tensorflow\n"
-pip install tensorflow tensorflow_probability tensorboard
-
 #add to ~/.bashrc new settings and alias
 cat ./resources/nap_bash_settings >> ~/.bashrc
 source ~/.bashrc
@@ -164,40 +140,11 @@ source ~/.bashrc
 echo vm.dirty_bytes=50331648 | sudo tee -a /etc/sysctl.conf
 echo vm.dirty_background_bytes=16777216 | sudo tee -a /etc/sysctl.conf
 
-#################################
-####Install vscode extensions####
-#################################
-print_green "\nInstall vscode extensions\n"
-print_blue "\n Installing better-comments\n"
-code --install-extension aaron-bond.better-comments >> /dev/null
-print_blue "\n Installing bracket-pair-colorizer-2\n"
-code --install-extension coenraads.bracket-pair-colorizer-2 >> /dev/null
-print_blue "\n Installing cpptools\n"
-code --install-extension ms-vscode.cpptools >> /dev/null
-print_blue "\n Installing code-gnu-global\n"
-code --install-extension austin.code-gnu-global >> /dev/null
-print_blue "\n Installing dart-code\n"
-code --install-extension dart-code.dart-code >> /dev/null
-print_blue "\n Installing fluent-icons\n"
-code --install-extension miguelsolorio.fluent-icons >> /dev/null
-print_blue "\n Installing flutter\n"
-code --install-extension dart-code.flutter >> /dev/null
-print_blue "\n Installing vscode-yaml\n"
-code --install-extension redhat.vscode-yaml >> /dev/null
-print_blue "\n Installing vscode-pull-request-github\n"
-code --install-extension github.vscode-pull-request-github >> /dev/null
-print_blue "\n Installing cmake-tools\n"
-code --install-extension ms-vscode.cmake-tools >> /dev/null
-print_blue "\n Installing cmake\n"
-code --install-extension twxs.cmake >> /dev/null
-print_blue "\n Installing cpptools-themes\n"
-code --install-extension ms-vscode.cpptools-themes >> /dev/null
-print_blue "\n Installing cpptools-extension-pack\n"
-code --install-extension ms-vscode.cpptools-extension-pack >> /dev/null
-print_blue "\n Installing better-cpp-syntax\n"
-code --install-extension jeff-hykin.better-cpp-syntax >> /dev/null
-print_blue "\n Installing docker\n"
-code --install-extension ms-azuretools.vscode-docker >> /dev/null
+############################################
+####No more install of vscode extensions####
+####   because of auto sync in vscode   ####
+############################################
+
 
 ###############################
 ####Customize gnome desktop####

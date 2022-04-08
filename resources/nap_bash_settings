@@ -12,3 +12,5 @@ alias upgrade='sudo apt upgrade -y'
 #java home
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
+#python pip packages home
+export PATH=$PATH:/home/napuh/.local/bin
