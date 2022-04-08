@@ -211,6 +211,10 @@ dconf load /org/gnome/terminal/legacy/profiles:/:84b4775b-f78b-4e72-955b-fa81e77
 print_blue "\nInstall manually dash to dock\n"
 firefox https://extensions.gnome.org/extension/307/dash-to-dock/
 
+#Install user themes extensions
+print_blue "\nInstall user themes extension\n"
+firefox https://extensions.gnome.org/extension/19/user-themes/
+
 ###################################
 ####Final update for the system####
 ###################################
